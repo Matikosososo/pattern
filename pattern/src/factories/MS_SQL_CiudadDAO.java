@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Arma;
 import model.Ciudad;
-import model.Skin;
 
-public class MySQL_CiudadDAO implements CiudadDAO {
+public class MS_SQL_CiudadDAO implements CiudadDAO {
 
     private ResultSet tablaVirtual;
     private List<Ciudad> listCiudad;
-    MySQL_ConexionDAO c;
+    MS_SQL_ConexionDAO c;
 
-    public MySQL_CiudadDAO() throws ClassNotFoundException, SQLException {
-        c = new MySQL_ConexionDAO("localhost", "root", "", "bd_muestra");
+    public MS_SQL_CiudadDAO() throws ClassNotFoundException {
+        c = new MS_SQL_ConexionDAO("RA52PCALU-31522", "sa", "123456", "muestra_db");//Cambiar Server en otro pc
     }
 
     @Override
-    public void create(Ciudad ci) {
-        String query = "insert into ciudad values(null, '" + ci.getNombre() + "')";
+    public void create(Ciudad a) {
+        String query = "insert into ciudad values('" + a.getNombre() + "')";
         c.ejecutar(query);
     }
 
@@ -49,7 +49,7 @@ public class MySQL_CiudadDAO implements CiudadDAO {
 
     @Override
     public void update(Ciudad ci) {
-        String query = "UPDATE ciudad set nombre = " + ci.getNombre() + " where id =" + ci.getId();
+        String query = "UPDATE ciudad set nombre = " + ci.getNombre()+ " where id =" + ci.getId();
         c.ejecutar(query);
     }
 

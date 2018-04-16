@@ -1,37 +1,32 @@
 package factories;
 
 import dao.ArmaDAO;
-import java.util.List;
-import model.Arma;
-import factories.MySQL_ConexionDAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Arma;
 
-public class MySQL_ArmaDAO implements ArmaDAO {
+public class MS_SQL_ArmaDAO implements ArmaDAO {
 
     private ResultSet tablaVirtual;
     private List<Arma> listArma;
-    MySQL_ConexionDAO c;
+    MS_SQL_ConexionDAO c;
 
-    public MySQL_ArmaDAO() throws ClassNotFoundException, SQLException {
-        c = new MySQL_ConexionDAO("localhost", "root", "", "bd_muestra");
-
+    public MS_SQL_ArmaDAO() throws ClassNotFoundException {
+        c = new MS_SQL_ConexionDAO("RA52PCALU-31522", "sa", "123456", "muestra_db");//Cambiar Server en otro pc
     }
 
     @Override
     public void create(Arma a) {
-
-        String query = "insert into arma values(null, '" + a.getNombre() + "', " + a.getMunicion() + ")";
+        String query = "insert into arma values('" + a.getNombre() + "', " + a.getMunicion() + ")";
         c.ejecutar(query);
-
     }
 
     @Override
     public List<Arma> read() {
-
         String query = "Select * from arma";
         Arma a;
         listArma = new ArrayList<>();
@@ -54,23 +49,18 @@ public class MySQL_ArmaDAO implements ArmaDAO {
 
     @Override
     public void update(Arma a) {
-
         String query = "UPDATE arma set municion = " + a.getMunicion() + " where id =" + a.getId();
         c.ejecutar(query);
-
     }
 
     @Override
     public void delete(int id) {
-
         String query = "DELETE FROM arma where id = " + id;
         c.ejecutar(query);
-
     }
 
     @Override
     public Arma getByID(int id) {
-
         String query = "Select * from arma where id = " + id;
         Arma a;
         listArma = new ArrayList<>();
@@ -93,7 +83,7 @@ public class MySQL_ArmaDAO implements ArmaDAO {
 
     @Override
     public List<Arma> search(String exp) {
-        String query = "Select * from arma where nombre LIKE '%"+exp+"%'";
+        String query = "Select * from arma where nombre LIKE '%" + exp + "%'";
         Arma a;
         listArma = new ArrayList<>();
         tablaVirtual = c.ejecutarSelect(query);

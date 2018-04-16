@@ -7,9 +7,9 @@ public interface CiudadDAO {
     void create(Ciudad c);
     List<Ciudad> read();
     void update(Ciudad c);
-    void delete(String id);
+    void delete(int id);
     
     // Otros
-    Ciudad getByID(String id);
+    Ciudad getByID(int id);
     List<Ciudad> search(String exp);
 }

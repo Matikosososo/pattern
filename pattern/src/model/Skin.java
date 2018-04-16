@@ -1,6 +1,7 @@
 package model;
 
 public class Skin {
+
     private int id;
     private String nombre;
 
@@ -31,6 +32,10 @@ public class Skin {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "ID: " + id + " - Nombre: " + nombre;
+    }
+
 }

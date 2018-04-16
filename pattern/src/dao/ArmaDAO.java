@@ -7,9 +7,9 @@ public interface ArmaDAO{
     void create(Arma a);
     List<Arma> read();
     void update(Arma a);
-    void delete(String id);
+    void delete(int id);
     
     // Otros
-    Arma getByID(String id);
+    Arma getByID(int id);
     List<Arma> search(String exp);
 }

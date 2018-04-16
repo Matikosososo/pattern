@@ -11,6 +11,16 @@ public class Arma {
         this.municion = municion;
     }
 
+    public Arma() {
+    }
+
+    public Arma(int id, int municion) {
+        this.id = id;
+        this.municion = municion;
+    }
+    
+    
+    
     public Arma(String nombre, int municion) {
         this.nombre = nombre;
         this.municion = municion;
@@ -38,6 +48,11 @@ public class Arma {
 
     public void setMunicion(int municion) {
         this.municion = municion;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: "+ id+" - Nombre: "+nombre+" - Munición: "+municion;
     }
     
     

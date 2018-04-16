@@ -16,7 +16,10 @@ public class MySQL_ConexionDAO implements ConexionDAO{
     private Connection con;
     private Statement sentencia;
     private ResultSet tablaVirtual;
-
+    
+    public MySQL_ConexionDAO(){
+        
+    }
     public MySQL_ConexionDAO(String server, String user, String pass, String bdName) throws ClassNotFoundException, SQLException {
         String protocolo = "jdbc:mysql://";
         String lineaUsuario = "user=" + user;
@@ -42,31 +45,40 @@ public class MySQL_ConexionDAO implements ConexionDAO{
     
     @Override
     public void conectar() {
+        
         try {
             sentencia = con.createStatement();
+            
         } catch (SQLException ex) {
             Logger.getLogger(MySQL_ConexionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("Conectado");
     }
 
     @Override
     public void ejecutar(String sql) {
         try {
+            conectar();
             sentencia.execute(sql);
+            desconectar();
         } catch (SQLException ex) {
             Logger.getLogger(MySQL_ConexionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(sql);
     }
 
     @Override
     public ResultSet ejecutarSelect(String select) {
         System.out.println(select);
         try {
+            conectar();
             tablaVirtual = sentencia.executeQuery(select);
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(MySQL_ConexionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         return tablaVirtual;
     }
 
@@ -77,6 +89,7 @@ public class MySQL_ConexionDAO implements ConexionDAO{
         } catch (SQLException ex) {
             Logger.getLogger(MySQL_ConexionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("Nos Vimoh");
     }
     
 }

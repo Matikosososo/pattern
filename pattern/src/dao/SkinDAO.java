@@ -7,9 +7,9 @@ public interface SkinDAO {
     void create(Skin s);
     List<Skin> read();
     void update(Skin s);
-    void delete(String id);
+    void delete(int id);
     
     // Otros
-    Skin getByID(String id);
+    Skin getByID(int id);
     List<Skin> search(String exp);
 }

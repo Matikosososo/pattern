@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Arma;
+import model.Ciudad;
 import model.Skin;
 
-public class MySQL_SkinDAO implements SkinDAO {
+public class MS_SQL_SkinDAO implements SkinDAO {
 
     private ResultSet tablaVirtual;
     private List<Skin> listSkin;
-    MySQL_ConexionDAO c;
+    MS_SQL_ConexionDAO c;
 
-    public MySQL_SkinDAO() throws ClassNotFoundException, SQLException {
-        c = new MySQL_ConexionDAO("localhost", "root", "", "bd_muestra");
+    public MS_SQL_SkinDAO() throws ClassNotFoundException {
+        c = new MS_SQL_ConexionDAO("RA52PCALU-31522", "sa", "123456", "muestra_db");//Cambiar Server en otro pc
     }
 
     @Override
     public void create(Skin s) {
-        String query = "insert into skin values(null, '" + s.getNombre() + "')";
+        String query = "insert into skin values('" + s.getNombre() + "')";
         c.ejecutar(query);
     }
 

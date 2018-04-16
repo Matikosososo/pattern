@@ -11,7 +11,7 @@ create table arma(
 
 create table skin(
     id INT AUTO_INCREMENT,
-    nombre varchar(150)
+    nombre varchar(150),
     primary key(id)
 );
 
@@ -21,3 +21,6 @@ create table ciudad(
     primary key(id)
 );
 
+select * from skin
+
+Select * from arma where nombre LIKE '%mi%'
