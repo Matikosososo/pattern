@@ -17,7 +17,7 @@ public class MySQL_ArmaDAO implements ArmaDAO {
     MySQL_ConexionDAO c;
 
     public MySQL_ArmaDAO() throws ClassNotFoundException, SQLException {
-        c = new MySQL_ConexionDAO("localhost", "root", "", "bd_muestra");
+        c = new MySQL_ConexionDAO(DatosConexion.MySQL.SERVER, DatosConexion.MySQL.USER, DatosConexion.MySQL.PASS, DatosConexion.MySQL.BD);
 
     }
 

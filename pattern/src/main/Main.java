@@ -15,11 +15,11 @@ public class Main {
 
     public static void main(String[] args) throws MotorNoSoportadoException, ClassNotFoundException, SQLException {
 //---------------------------MY SQL------------------------------
-        System.out.println("--------------------------------MY SQL------------------------------------");
+        System.out.println("--------------------------------MYSQL------------------------------------");
 //---------------------------ARMAS------------------------------
         //crear Nuevo
-        //Arma a = new Arma("Pipa", 1);
-        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).create(a);
+        Arma a = new Arma("Pipa", 1);
+        DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).create(a);
 
         //Actualizar
         //Arma a = new Arma(4, 5);
@@ -29,9 +29,9 @@ public class Main {
         //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).delete(4);
         
         //Read o get lista
-        List<Arma> ListaArmas = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).read();
-        for (Arma a : ListaArmas) {
-            System.out.println(a);
+        List<Arma> listaArmas = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).read();
+        for (Arma k : listaArmas) {
+            System.out.println(k);
         }
 
         //Buscar arma por id
@@ -39,10 +39,10 @@ public class Main {
         System.out.println(b);
 
         //Buscar por expresion
-        List<Arma> ListaArmasBuscar = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).search("mi");
+        List<Arma> listaArmasBuscar = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MY_SQL).search("mi");
 
-        for (Arma a : ListaArmasBuscar) {
-            System.out.println(a);
+        for (Arma p : listaArmasBuscar) {
+            System.out.println(p);
         }
 
         //---------------------------Skin------------------------------
@@ -58,34 +58,34 @@ public class Main {
         //---------------------------MS SQL------------------------------
         System.out.println("--------------------------------MS SQL------------------------------------");
         
-        //CREAR ARMA
-        //Arma a = new Arma("Escopeta Tactica", 8);
-        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).create(a);
-        
-        //LISTA O READ 
-        List<Arma> listaArmasMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).read();
-        
-        for (Arma s : listaArmasMS) {
-            System.out.println(s);
-        }
-        
-        //UPDATE
-        //Arma d = new Arma(2, 4);
-        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).update(d);
-        
-        //DELETE
-        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).delete(2);
-        
-        //Buscar arma por id
-        Arma bMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).getByID(1);
-        System.out.println(bMS);
-
-        //Buscar por expresion
-        List<Arma> ListaArmasBuscarMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).search("ta");
-
-        for (Arma a : ListaArmasBuscarMS) {
-            System.out.println(a);
-        }
+//        //CREAR ARMA
+//        //Arma a = new Arma("Escopeta Tactica", 8);
+//        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).create(a);
+//        
+//        //LISTA O READ 
+//        List<Arma> listaArmasMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).read();
+//        
+//        for (Arma s : listaArmasMS) {
+//            System.out.println(s);
+//        }
+//        
+//        //UPDATE
+//        //Arma d = new Arma(2, 4);
+//        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).update(d);
+//        
+//        //DELETE
+//        //DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).delete(2);
+//        
+//        //Buscar arma por id
+//        Arma bMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).getByID(1);
+//        System.out.println(bMS);
+//
+//        //Buscar por expresion
+//        List<Arma> listaArmasBuscarMS = DAOFactory.getInstance().getArmaDAO(DAOFactory.Motor.MS_SQL).search("ta");
+//
+//        for (Arma o : listaArmasBuscarMS) {
+//            System.out.println(o);
+//        }
     }
 
 }

@@ -17,7 +17,7 @@ public class MS_SQL_SkinDAO implements SkinDAO {
     MS_SQL_ConexionDAO c;
 
     public MS_SQL_SkinDAO() throws ClassNotFoundException {
-        c = new MS_SQL_ConexionDAO("RA52PCALU-31522", "sa", "123456", "muestra_db");//Cambiar Server en otro pc
+        c = new MS_SQL_ConexionDAO(DatosConexion.MSSQL.SERVER, DatosConexion.MSSQL.USER, DatosConexion.MSSQL.PASS, DatosConexion.MSSQL.BD);//Cambiar Server en otro pc
     }
 
     @Override

@@ -21,6 +21,6 @@ create table ciudad(
     primary key(id)
 );
 
-select * from skin
-
-Select * from arma where nombre LIKE '%mi%'
+insert into arma values(null, 'Pistola Silenciada')
+insert into ciudad values(null, 'Pisos Picados')
+insert into skin values(null, 'Unicornio')
